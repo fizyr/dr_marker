@@ -16,4 +16,14 @@ visualization_msgs::Marker createSphereMarker(
 	int id = 0                                      ///< The id of this marker
 );
 
+/// Creates a box marker
+visualization_msgs::Marker createBoxMarker(
+	std::string frame_id,                           ///< The frame id in which the position is defined
+	Eigen::AlignedBox3d box,                        ///< The position of the marker in frame_id
+	std::string ns = "",                            ///< The namespace of the marker
+	ros::Duration lifetime = ros::Duration(0),      ///< The lifetime of the marker
+	std::array<double, 4> color = {{ 1, 0, 0, 1 }}, ///< The color of the sphere in RGBA
+	int id = 0                                      ///< The id of this marker
+);
+
 }
