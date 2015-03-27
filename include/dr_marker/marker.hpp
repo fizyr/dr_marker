@@ -16,6 +16,18 @@ visualization_msgs::Marker createSphereMarker(
 	int id = 0                                      ///< The id of this marker
 );
 
+/// Creates a cylindrical marker
+visualization_msgs::Marker createCylinderMarker(
+	std::string frame_id,        ///< The frame id in which the position is defined
+	Eigen::Vector3d position,    ///< The position of the marker in frame_id
+	double radius,               ///< The radius of the cylinder
+	double height,               ///< The height of the cylinder
+	std::string ns,              ///< The namespace of the marker
+	ros::Duration lifetime,      ///< The lifetime of the marker
+	std::array<double, 4> color, ///< The color of the cylinder in RGBA
+	int id = 0                   ///< The id of this marker
+);
+
 /// Creates a box marker
 visualization_msgs::Marker createBoxMarker(
 	std::string frame_id,                           ///< The frame id in which the position is defined
