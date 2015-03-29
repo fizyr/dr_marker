@@ -1,4 +1,5 @@
 #include "marker.hpp"
+#include <dr_eigen/ros.hpp>
 
 namespace dr {
 
@@ -37,7 +38,7 @@ visualization_msgs::Marker createSphereMarker(
 /// Creates a cylindrical marker
 visualization_msgs::Marker createCylinderMarker(
 	std::string frame_id,        ///< The frame id in which the position is defined
-	Eigen::Vector3d position,    ///< The position of the marker in frame_id
+	Eigen::Isometry3d pose,      ///< The position of the marker in frame_id
 	double radius,               ///< The radius of the cylinder
 	double height,               ///< The height of the cylinder
 	std::string ns,              ///< The namespace of the marker
@@ -49,9 +50,7 @@ visualization_msgs::Marker createCylinderMarker(
 	marker.header.frame_id = frame_id;
 	marker.header.stamp    = ros::Time::now();
 	marker.id              = id;
-	marker.pose.position.x = position.x();
-	marker.pose.position.y = position.y();
-	marker.pose.position.z = position.z();
+	marker.pose            = toRosPose(pose);
 	marker.color.r         = color[0];
 	marker.color.g         = color[1];
 	marker.color.b         = color[2];
