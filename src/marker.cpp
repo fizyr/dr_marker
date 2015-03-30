@@ -55,8 +55,8 @@ visualization_msgs::Marker createCylinderMarker(
 	marker.color.g         = color[1];
 	marker.color.b         = color[2];
 	marker.color.a         = color[3];
-	marker.scale.x         = radius;
-	marker.scale.y         = radius;
+	marker.scale.x         = radius * 2;
+	marker.scale.y         = radius * 2;
 	marker.scale.z         = height / 2;
 	marker.lifetime        = lifetime;
 	marker.type            = visualization_msgs::Marker::CYLINDER;
