@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(dr_marker)
 
 find_package(catkin REQUIRED COMPONENTS
-	dr_cmake
+	dr_base
 	dr_eigen
 	roscpp
 	visualization_msgs
