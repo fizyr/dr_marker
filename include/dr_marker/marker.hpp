@@ -12,7 +12,7 @@ visualization_msgs::Marker createSphereMarker(
 	double radius = 0.1,                            ///< The radius of the sphere
 	std::string ns = "",                            ///< The namespace of the marker
 	ros::Duration lifetime = ros::Duration(0),      ///< The lifetime of the marker
-	std::array<double, 4> color = {{ 1, 0, 0, 1 }}, ///< The color of the sphere in RGBA
+	std::array<float, 4> color = {{ 1, 0, 0, 1 }},  ///< The color of the sphere in RGBA
 	int id = 0                                      ///< The id of this marker
 );
 
@@ -24,7 +24,7 @@ visualization_msgs::Marker createCylinderMarker(
 	double height,                                  ///< The height of the cylinder
 	std::string ns,                                 ///< The namespace of the marker
 	ros::Duration lifetime = ros::Duration(0),      ///< The lifetime of the marker
-	std::array<double, 4> color = {{ 1, 0, 0, 1 }}, ///< The color of the cylinder in RGBA
+	std::array<float, 4> color = {{ 1, 0, 0, 1 }},  ///< The color of the cylinder in RGBA
 	int id = 0                                      ///< The id of this marker
 );
 
@@ -34,7 +34,7 @@ visualization_msgs::Marker createBoxMarker(
 	Eigen::AlignedBox3d box,                        ///< The position of the marker in frame_id
 	std::string ns = "",                            ///< The namespace of the marker
 	ros::Duration lifetime = ros::Duration(0),      ///< The lifetime of the marker
-	std::array<double, 4> color = {{ 1, 0, 0, 1 }}, ///< The color of the sphere in RGBA
+	std::array<float, 4> color = {{ 1, 0, 0, 1 }},  ///< The color of the sphere in RGBA
 	int id = 0                                      ///< The id of this marker
 );
 
