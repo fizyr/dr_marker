@@ -100,7 +100,7 @@ TEST(MarkerTest, makeCylinderMarker) {
 
 	EXPECT_DOUBLE_EQ(marker.scale.x, radius * 2);
 	EXPECT_DOUBLE_EQ(marker.scale.y, radius * 2);
-	EXPECT_DOUBLE_EQ(marker.scale.z, radius);
+	EXPECT_DOUBLE_EQ(marker.scale.z, height);
 
 	EXPECT_DOUBLE_EQ(marker.lifetime.toSec(), 0.5);
 	EXPECT_EQ(marker.type, visualization_msgs::Marker::CYLINDER);
