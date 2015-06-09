@@ -65,7 +65,7 @@ TEST(MarkerTest, makeCylinderMarker) {
 	ros::Time now = ros::Time::now();
 
 	std::string frame_id = "some_frame";
-	Eigen::AngleAxisd rotation = rotate_y(dr::pi());
+	Eigen::AngleAxisd rotation = rotateY(dr::pi());
 	Eigen::Isometry3d pose = translate(0.5, 0.5, 0.5) * rotation;
 	double radius = 0.5;
 	double height = 1.0;
