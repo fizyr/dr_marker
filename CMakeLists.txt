@@ -24,7 +24,7 @@ add_library(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
-catkin_add_gtest(${PROJECT_NAME}_test_marker test/marker.cpp)
+dr_add_gtest(marker test/marker.cpp)
 
 target_link_libraries(${PROJECT_NAME}_test_marker ${catkin_LIBRARIES} ${PROJECT_NAME})
 
