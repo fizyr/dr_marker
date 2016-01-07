@@ -4,7 +4,8 @@
 #include <dr_eigen/ros.hpp>
 #include <dr_eigen/eigen.hpp>
 #include <dr_eigen/test/compare.hpp>
-#include <dr_util/geometry.hpp>
+
+#include <cmath>
 
 int main(int argc, char * * argv) {
 	testing::InitGoogleTest(&argc, argv);
@@ -65,7 +66,7 @@ TEST(MarkerTest, makeCylinderMarker) {
 	ros::Time now = ros::Time::now();
 
 	std::string frame_id = "some_frame";
-	Eigen::AngleAxisd rotation = rotateY(dr::pi());
+	Eigen::AngleAxisd rotation = rotateY(M_PI);
 	Eigen::Isometry3d pose = translate(0.5, 0.5, 0.5) * rotation;
 	double radius = 0.5;
 	double height = 1.0;
