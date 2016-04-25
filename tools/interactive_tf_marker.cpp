@@ -11,7 +11,9 @@ void processFeedback(
 	const visualization_msgs::InteractiveMarkerFeedbackConstPtr &feedback )
 {
 	ROS_INFO_STREAM(feedback->marker_name << " (frame_id: '" << feedback->header.frame_id << "') is now at \n" <<
-		dr::toYaml(dr::toEigen(feedback->pose));
+		dr::toYaml(dr::toEigen(feedback->pose)) <<
+		"\nTransform: \n" <<
+		dr::toYaml(dr::toEigen(feedback->pose).inverse());
 	);
 }
 
