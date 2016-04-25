@@ -2,6 +2,7 @@
 
 #include <dr_eigen/eigen.hpp>
 #include <visualization_msgs/Marker.h>
+#include <visualization_msgs/MarkerArray.h>
 
 namespace dr {
 
@@ -37,5 +38,13 @@ visualization_msgs::Marker createBoxMarker(
 	std::array<float, 4> color = {{ 1, 0, 0, 1 }},  ///< The color of the sphere in RGBA
 	int id = 0                                      ///< The id of this marker
 );
+
+visualization_msgs::MarkerArray createAxesMarker(
+	std::string frame_id = "/world",                             ///< The frame id in which the position is defined
+	Eigen::Isometry3d pose = Eigen::Isometry3d::Identity(),      ///< The position of the marker in frame_id
+	std::string ns = "",                                         ///< The namespace of the marker
+	ros::Duration lifetime = ros::Duration(0)                    ///< The lifetime of the marker
+);
+
 
 }

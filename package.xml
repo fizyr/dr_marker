@@ -10,6 +10,10 @@
 	<buildtool_depend>catkin</buildtool_depend>
 	<depend>dr_base</depend>
 	<depend>dr_eigen</depend>
+	<depend>dr_param</depend>
 	<depend>roscpp</depend>
 	<depend>visualization_msgs</depend>
+	<depend>geometry_msgs</depend>
+	<depend>interactive_markers</depend>
+	<depend>eigen_conversions</depend>
 </package>

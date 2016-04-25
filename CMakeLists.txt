@@ -4,8 +4,12 @@ project(dr_marker)
 find_package(catkin REQUIRED COMPONENTS
 	dr_base
 	dr_eigen
+	dr_param
 	roscpp
 	visualization_msgs
+	geometry_msgs
+	interactive_markers
+	eigen_conversions
 )
 
 catkin_package(
@@ -24,12 +28,19 @@ add_library(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
+add_executable(interactive_tf_marker
+	tools/interactive_tf_marker.cpp
+	src/marker.cpp
+)
+
+target_link_libraries(interactive_tf_marker ${catkin_LIBRARIES})
+
 dr_add_gtest(marker test/marker.cpp)
 
 target_link_libraries(${PROJECT_NAME}_test_marker ${catkin_LIBRARIES} ${PROJECT_NAME})
 
 install(
-	TARGETS "${PROJECT_NAME}"
+	TARGETS "${PROJECT_NAME}" interactive_tf_marker
 	ARCHIVE DESTINATION "${CATKIN_PACKAGE_LIB_DESTINATION}"
 	LIBRARY DESTINATION "${CATKIN_PACKAGE_LIB_DESTINATION}"
 	RUNTIME DESTINATION "${CATKIN_PACKAGE_BIN_DESTINATION}"
