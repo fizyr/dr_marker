@@ -31,6 +31,7 @@ int main(int argc, char** argv)
 
 	// create an interactive marker for our server
 	visualization_msgs::InteractiveMarker int_marker;
+	int_marker.scale = 0.1;
 	int_marker.header.frame_id = frame_id;
 	int_marker.header.stamp=ros::Time::now();
 	int_marker.name = "axes_marker";
