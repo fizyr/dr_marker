@@ -15,5 +15,4 @@
 	<depend>visualization_msgs</depend>
 	<depend>geometry_msgs</depend>
 	<depend>interactive_markers</depend>
-	<depend>eigen_conversions</depend>
 </package>

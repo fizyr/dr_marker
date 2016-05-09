@@ -5,8 +5,6 @@
 #include <dr_eigen/ros.hpp>
 #include <dr_param/param.hpp>
 
-#include "marker.hpp"
-
 void processFeedback(
 	const visualization_msgs::InteractiveMarkerFeedbackConstPtr &feedback )
 {
@@ -37,13 +35,9 @@ int main(int argc, char** argv)
 	int_marker.name = "axes_marker";
 	int_marker.description = "Pose control";
 
-	// create a grey marker array (each axis one marker)
-	visualization_msgs::MarkerArray marker = dr::createAxesMarker(frame_id);
-
 	// create a non-interactive control which contains the markers
 	visualization_msgs::InteractiveMarkerControl control;
 	control.always_visible = true;
-	control.markers = marker.markers;
 
 	// add the control to the interactive marker
 	int_marker.controls.push_back( control );

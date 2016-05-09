@@ -39,12 +39,4 @@ visualization_msgs::Marker createBoxMarker(
 	int id = 0                                      ///< The id of this marker
 );
 
-visualization_msgs::MarkerArray createAxesMarker(
-	std::string frame_id = "/world",                             ///< The frame id in which the position is defined
-	Eigen::Isometry3d pose = Eigen::Isometry3d::Identity(),      ///< The position of the marker in frame_id
-	std::string ns = "",                                         ///< The namespace of the marker
-	ros::Duration lifetime = ros::Duration(0)                    ///< The lifetime of the marker
-);
-
-
 }

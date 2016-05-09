@@ -9,7 +9,6 @@ find_package(catkin REQUIRED COMPONENTS
 	visualization_msgs
 	geometry_msgs
 	interactive_markers
-	eigen_conversions
 )
 
 catkin_package(
