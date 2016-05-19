@@ -34,12 +34,17 @@ add_executable(interactive_tf_marker
 
 target_link_libraries(interactive_tf_marker ${catkin_LIBRARIES})
 
+add_executable(mesh_publisher
+	tools/mesh_publisher.cpp
+)
+target_link_libraries(mesh_publisher ${catkin_LIBRARIES})
+
 dr_add_gtest(marker test/marker.cpp)
 
 target_link_libraries(${PROJECT_NAME}_test_marker ${catkin_LIBRARIES} ${PROJECT_NAME})
 
 install(
-	TARGETS "${PROJECT_NAME}" interactive_tf_marker
+	TARGETS "${PROJECT_NAME}" interactive_tf_marker mesh_publisher
 	ARCHIVE DESTINATION "${CATKIN_PACKAGE_LIB_DESTINATION}"
 	LIBRARY DESTINATION "${CATKIN_PACKAGE_LIB_DESTINATION}"
 	RUNTIME DESTINATION "${CATKIN_PACKAGE_BIN_DESTINATION}"
