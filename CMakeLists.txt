@@ -23,16 +23,14 @@ dr_include_directories(
 
 add_library(${PROJECT_NAME}
 	src/marker.cpp
+	src/pose_interactive_marker.cpp
 )
-
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 add_executable(interactive_tf_marker
 	tools/interactive_tf_marker.cpp
-	src/marker.cpp
 )
-
-target_link_libraries(interactive_tf_marker ${catkin_LIBRARIES})
+target_link_libraries(interactive_tf_marker ${catkin_LIBRARIES} ${PROJECT_NAME})
 
 add_executable(mesh_publisher
 	tools/mesh_publisher.cpp
