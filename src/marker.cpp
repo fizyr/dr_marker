@@ -5,13 +5,13 @@ namespace dr {
 
 /// Creates a spherical marker
 visualization_msgs::Marker createSphereMarker(
-	std::string frame_id,        ///< The frame id in which the position is defined
-	Eigen::Vector3d position,    ///< The position of the marker in frame_id
-	double radius,               ///< The radius of the sphere
-	std::string ns,              ///< The namespace of the marker
-	ros::Duration lifetime,      ///< The lifetime of the marker
-	std::array<float, 4> color,  ///< The color of the sphere in RGBA
-	int id                       ///< The id of this marker
+	std::string const & frame_id,       ///< The frame id in which the position is defined
+	Eigen::Vector3d const & position,   ///< The position of the marker in frame_id
+	double radius,                      ///< The radius of the sphere
+	std::string const & ns,             ///< The namespace of the marker
+	ros::Duration const & lifetime,     ///< The lifetime of the marker
+	std::array<float, 4> const & color, ///< The color of the sphere in RGBA
+	int id                              ///< The id of this marker
 ) {
 	visualization_msgs::Marker marker;
 	marker.header.frame_id = frame_id;
@@ -37,14 +37,14 @@ visualization_msgs::Marker createSphereMarker(
 
 /// Creates a cylindrical marker
 visualization_msgs::Marker createCylinderMarker(
-	std::string frame_id,        ///< The frame id in which the position is defined
-	Eigen::Isometry3d pose,      ///< The position of the marker in frame_id
-	double radius,               ///< The radius of the cylinder
-	double height,               ///< The height of the cylinder
-	std::string ns,              ///< The namespace of the marker
-	ros::Duration lifetime,      ///< The lifetime of the marker
-	std::array<float, 4> color,  ///< The color of the cylinder in RGBA
-	int id                       ///< The id of this marker
+	std::string const & frame_id,       ///< The frame id in which the position is defined
+	Eigen::Isometry3d const & pose,     ///< The position of the marker in frame_id
+	double radius,                      ///< The radius of the cylinder
+	double height,                      ///< The height of the cylinder
+	std::string const & ns,             ///< The namespace of the marker
+	ros::Duration const & lifetime,     ///< The lifetime of the marker
+	std::array<float, 4> const & color, ///< The color of the cylinder in RGBA
+	int id                              ///< The id of this marker
 ) {
 	visualization_msgs::Marker marker;
 	marker.header.frame_id = frame_id;
@@ -68,12 +68,12 @@ visualization_msgs::Marker createCylinderMarker(
 
 /// Creates a box marker
 visualization_msgs::Marker createBoxMarker(
-	std::string frame_id,        ///< The frame id in which the position is defined
-	Eigen::AlignedBox3d box,     ///< The position of the marker in frame_id
-	std::string ns,              ///< The namespace of the marker
-	ros::Duration lifetime,      ///< The lifetime of the marker
-	std::array<float, 4> color,  ///< The color of the sphere in RGBA
-	int id                       ///< The id of this marker
+	std::string const & frame_id,        ///< The frame id in which the position is defined
+	Eigen::AlignedBox3d const & box,     ///< The position of the marker in frame_id
+	std::string const & ns,              ///< The namespace of the marker
+	ros::Duration const & lifetime,      ///< The lifetime of the marker
+	std::array<float, 4> const & color,  ///< The color of the sphere in RGBA
+	int id                               ///< The id of this marker
 ) {
 	visualization_msgs::Marker marker;
 	marker.header.frame_id = frame_id;
@@ -91,6 +91,37 @@ visualization_msgs::Marker createBoxMarker(
 	marker.scale.z         = box.sizes().z();
 	marker.lifetime        = lifetime;
 	marker.type            = visualization_msgs::Marker::CUBE;
+	marker.action          = visualization_msgs::Marker::ADD;
+	marker.ns              = ns;
+
+	return marker;
+}
+
+/// Creates a mesh marker
+visualization_msgs::Marker createMeshMarker(
+	std::string const & frame_id,       ///< The frame id in which the position is defined
+	Eigen::Isometry3d const & pose,     ///< The pose of the marker in frame_id
+	std::string const & mesh_resource,  ///< Mesh resource of the marker (in "package://" syntax)
+	std::string const & ns,             ///< The namespace of the marker
+	ros::Duration const & lifetime,     ///< The lifetime of the marker
+	std::array<float, 4> const & color, ///< The color of the marker in RGBA
+	int id                              ///< The id of this marker
+) {
+	visualization_msgs::Marker marker;
+	marker.header.frame_id = frame_id;
+	marker.header.stamp    = ros::Time::now();
+	marker.id              = id;
+	marker.pose            = toRosPose(pose);
+	marker.color.r         = color[0];
+	marker.color.g         = color[1];
+	marker.color.b         = color[2];
+	marker.color.a         = color[3];
+	marker.scale.x         = 1.0;
+	marker.scale.y         = 1.0;
+	marker.scale.z         = 1.0;
+	marker.lifetime        = lifetime;
+	marker.type            = visualization_msgs::Marker::MESH_RESOURCE;
+	marker.mesh_resource   = mesh_resource;
 	marker.action          = visualization_msgs::Marker::ADD;
 	marker.ns              = ns;
 
