@@ -19,10 +19,10 @@ TEST(MarkerTest, makeSphereMarker) {
 
 	ros::Time now = ros::Time::now();
 
-	std::string frame_id = "some_frame";
 	Eigen::Vector3d position(0.5, 0.5, 0.5); // some position
-	double radius = 0.5;
-	std::string ns = "some_namespace";
+	std::string frame_id   = "some_frame";
+	double radius          = 0.5;
+	std::string ns         = "some_namespace";
 	ros::Duration lifetime = ros::Duration(0.5); // 0.5s lifetime
 	std::array<float, 4> color({{0.3f, 0.4f, 0.5f, 0.6f}});
 	int id = 100;
@@ -65,13 +65,13 @@ TEST(MarkerTest, makeCylinderMarker) {
 
 	ros::Time now = ros::Time::now();
 
-	std::string frame_id = "some_frame";
+	std::string frame_id       = "some_frame";
 	Eigen::AngleAxisd rotation = rotateY(M_PI);
-	Eigen::Isometry3d pose = translate(0.5, 0.5, 0.5) * rotation;
-	double radius = 0.5;
-	double height = 1.0;
-	std::string ns = "some_namespace";
-	ros::Duration lifetime = ros::Duration(0.5); // 0.5s lifetime
+	Eigen::Isometry3d pose     = translate(0.5, 0.5, 0.5) * rotation;
+	double radius              = 0.5;
+	double height              = 1.0;
+	std::string ns             = "some_namespace";
+	ros::Duration lifetime     = ros::Duration(0.5); // 0.5s lifetime
 	std::array<float, 4> color({{0.3f, 0.4f, 0.5f, 0.6f}});
 	int id = 100;
 

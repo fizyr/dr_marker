@@ -20,6 +20,7 @@ visualization_msgs::Marker createSphereMarker(
 /// Creates a cylindrical marker
 visualization_msgs::Marker createCylinderMarker(
 	std::string const & frame_id,                          ///< The frame id in which the position is defined
+	Eigen::Isometry3d const & pose,                        ///< The position of the marker in frame_id
 	double radius,                                         ///< The radius of the cylinder
 	double height,                                         ///< The height of the cylinder
 	std::string const & ns,                                ///< The namespace of the marker
