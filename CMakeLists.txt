@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 3.8)
 project(dr_marker)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+add_compile_options(-Wall -Wextra -Wpedantic)
+
 find_package(catkin REQUIRED COMPONENTS
-	dr_base
 	dr_eigen
 	dr_param
 	roscpp
@@ -16,10 +20,8 @@ catkin_package(
 	LIBRARIES ${PROJECT_NAME}
 )
 
-dr_include_directories(
-	include/${PROJECT_NAME}
-	${catkin_INCLUDE_DIRS}
-)
+include_directories(include/${PROJECT_NAME})
+include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
 
 add_library(${PROJECT_NAME}
 	src/marker.cpp
@@ -37,7 +39,7 @@ add_executable(mesh_publisher
 )
 target_link_libraries(mesh_publisher ${catkin_LIBRARIES})
 
-dr_add_gtest(marker test/marker.cpp)
+catkin_add_gtest(${PROJECT_NAME}_test_marker test/marker.cpp)
 
 target_link_libraries(${PROJECT_NAME}_test_marker ${catkin_LIBRARIES} ${PROJECT_NAME})
 
