@@ -39,7 +39,9 @@ add_executable(mesh_publisher
 )
 target_link_libraries(mesh_publisher ${catkin_LIBRARIES})
 
-catkin_add_gtest(${PROJECT_NAME}_test_marker test/marker.cpp)
+if (CATKIN_ENABLE_TESTING)
+	catkin_add_gtest(${PROJECT_NAME}_test_marker test/marker.cpp)
+endif()
 
 target_link_libraries(${PROJECT_NAME}_test_marker ${catkin_LIBRARIES} ${PROJECT_NAME})
 
