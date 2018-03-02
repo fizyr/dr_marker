@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
 	<name>dr_marker</name>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
+>>>>>>> Bump version to 0.0.1
 	<description>The dr_marker package</description>
 	<license>all-rights-reserved</license>
 
