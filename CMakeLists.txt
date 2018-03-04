@@ -41,9 +41,8 @@ target_link_libraries(mesh_publisher ${catkin_LIBRARIES})
 
 if (CATKIN_ENABLE_TESTING)
 	catkin_add_gtest(${PROJECT_NAME}_test_marker test/marker.cpp)
+	target_link_libraries(${PROJECT_NAME}_test_marker ${catkin_LIBRARIES} ${PROJECT_NAME})
 endif()
-
-target_link_libraries(${PROJECT_NAME}_test_marker ${catkin_LIBRARIES} ${PROJECT_NAME})
 
 install(
 	TARGETS "${PROJECT_NAME}" interactive_tf_marker mesh_publisher
